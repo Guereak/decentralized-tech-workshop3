@@ -3,39 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Front</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>E-commerce API Tester</title>
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <h1>Simple E-commerce Front</h1>
+    <h1>Test API E-commerce</h1>
 
-    <!-- Produits -->
-    <h2>Products</h2>
-    <button onclick="fetchProducts()">Load Products</button>
-    <div id="products"></div>
+    <section>
+        <h2>Products</h2>
+        <button onclick="getProducts()">Get All Products</button>
+        <ul id="products-list"></ul>
 
-    <h3>Add / Update Product</h3>
-    <form onsubmit="addOrUpdateProduct(event)">
-        <input type="hidden" id="productId">
-        <input type="text" id="productName" placeholder="Name" required>
-        <input type="text" id="productDesc" placeholder="Description">
-        <input type="number" id="productPrice" placeholder="Price" required>
-        <input type="text" id="productCategory" placeholder="Category">
-        <input type="number" id="productStock" placeholder="Stock" required>
-        <button type="submit">Save Product</button>
-    </form>
+        <h3>Add Product</h3>
+        <input type="text" id="product-name" placeholder="Name">
+        <input type="text" id="product-desc" placeholder="Description">
+        <input type="number" id="product-price" placeholder="Price">
+        <input type="text" id="product-category" placeholder="Category">
+        <button onclick="addProduct()">Add Product</button>
+    </section>
 
-    <!-- Panier -->
-    <h2>Shopping Cart</h2>
-    <button onclick="fetchCart()">View Cart</button>
-    <div id="cart"></div>
+    <section>
+        <h2>Orders</h2>
+        <input type="text" id="order-user-id" placeholder="User ID">
+        <button onclick="getOrders()">Get Orders</button>
+        <button onclick="createOrder()">Create Order</button>
+        <ul id="orders-list"></ul>
+    </section>
 
-    <!-- Commandes -->
-    <h2>Orders</h2>
-    <button onclick="fetchOrders()">View Orders</button>
-    <div id="orders"></div>
+    <section>
+        <h2>Cart</h2>
+        <input type="text" id="cart-user-id" placeholder="User ID">
+        <button onclick="getCart()">Get Cart</button>
+        <ul id="cart-list"></ul>
 
-    <script src="index.js"></script>
+        <h3>Add to Cart</h3>
+        <input type="text" id="cart-product-id" placeholder="Product ID">
+        <input type="number" id="cart-quantity" placeholder="Quantity">
+        <button onclick="addToCart()">Add to Cart</button>
+
+        <h3>Remove from Cart</h3>
+        <input type="text" id="cart-remove-product-id" placeholder="Product ID">
+        <button onclick="removeFromCart()">Remove from Cart</button>
+    </section>
+
 </body>
 </html>
